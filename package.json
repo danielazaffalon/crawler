@@ -1,0 +1,11 @@
+{
+  "name": "scraping",
+  "version": "1.0.0",
+  "description": "Stack Builders Scraping project from Daniela Zaffalon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniela Zaffalon",
+  "license": "ISC"
+}
