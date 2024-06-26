@@ -27,6 +27,12 @@ class Entry {
     }
 }
 
+/**
+ * Represents a web crawler that fetches and processes data from a specified URL.
+ * 
+ * @class Crawler
+ * @export
+ */
 export class Crawler{
     constructor(url){
         this.url = url;
