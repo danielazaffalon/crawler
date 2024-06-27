@@ -3,7 +3,23 @@ import { LogEntry } from './log.js';
 import { getParams } from './readLine.js';
 import { StorageService } from './storageService.js';
 
-/** Execute Function */
+/**
+ * Executes the main crawling and logging process.
+ * 
+ * This function:
+ * 1. Initializes logging and storage services.
+ * 2. Prompts the user for filtering parameters.
+ * 3. Initiates a web crawler to fetch and scrape data from Hacker News.
+ * 4. Filters the scraped entries based on user input.
+ * 5. Logs relevant data such as the number of entries crawled and filtered.
+ * 6. Handles errors and logs them.
+ * 7. Stores the log entry in a storage service.
+ * 8. Exits the process upon completion.
+ * 
+ * @async
+ * @function execute
+ * @returns {Promise<void>}
+ */
 async function execute(){
     const logEntry = new LogEntry();
     const storageService = new StorageService();
