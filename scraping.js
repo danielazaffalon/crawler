@@ -34,11 +34,11 @@ class Entry {
     wordCount(field){
         try{
             const arrayLenghth = this[field].split(' ').filter(word => word.length > 0).length;
+            return arrayLenghth;
         }
         catch(e){
             throw `Error Counting Words, the field is not a string.`;
         }
-        return arrayLenghth;
     }
 }
 
@@ -69,11 +69,11 @@ export class Crawler{
         try{
             const response = await fetch(this.url);
             const body = await response.text();
+            return body;
         }
         catch(e){
             throw `Error fetching data: ${JSON.stringify(e)}`;
         }
-        return body;
     }
 
     /**
@@ -83,8 +83,8 @@ export class Crawler{
      * @returns {{}} Array with relevant DOM data for each entry
      */
     dataScraping(body){
-        const entries = [];
         try{
+            const entries = [];
             const $ = load(body);
             $('tr.athing').each((_,item) => {
                 const itemNode = $(item);
@@ -94,11 +94,11 @@ export class Crawler{
                 const comments = Number(itemNode.next().find('span.subline').find('a:contains("comments")').text().split(/\s|&nbsp;/g)[0]);
                 entries.push(new Entry(number, title, points || 0, comments || 0));
             });
+            return entries;
         }
         catch(e){
             throw `Error Scraping data: ${JSON.stringify(e)}`;
         }
-        return entries;
     }
 
     /**
@@ -118,10 +118,10 @@ export class Crawler{
             : item => item.wordCount(filterKey) <= WordLimit;
             const sortFunction = ascending ? (a, b) => a[sortKey] - b[sortKey] : (a, b) => b[sortKey] - a[sortKey];
             const filteredEntries = entries.filter(filterFunction).sort(sortFunction);
+            return filteredEntries;
         }
         catch(e){
             throw `Error Filtering Entries: ${JSON.stringify(e)}`;
         }
-        return filteredEntries;
     }
 }

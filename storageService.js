@@ -29,13 +29,13 @@ export class StorageService {
     }
 
     /**
-     * Inserts a log entry into the Firestore "crawlerLog" collection.
+     * Inserts a log entry into the Firestore 'crawlerLog' collection.
      *
      * @async
      * @param {object} logEntry - The log entry to insert.
      * @returns {Promise<void>} - A promise that resolves when the log entry is successfully inserted.
      */
     async insertLogEntry(logEntry){
-        await addDoc(collection(this.db,"crawlerLog"), logEntry);
+        await addDoc(collection(this.db,'crawlerLog'), logEntry);
     }
 }
