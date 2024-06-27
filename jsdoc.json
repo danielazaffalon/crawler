@@ -4,7 +4,7 @@
       "dictionaries": ["jsdoc"]
     },
     "source": {
-      "include": ["index.js", "log.js", "readLine.js", "scraping.js", "storageService.js", "config.js"],
+      "include": ["index.js", "./log/log.js", "./readLine/readLine.js", "./scraping/scraping.js", "./storageService/storageService.js", "./storageService/config.js"],
       "includePattern": ".+\\.js(doc|x)?$",
       "excludePattern": "(^|\\/|\\\\)_"
     },
@@ -17,6 +17,7 @@
       "encoding": "utf8",
       "destination": "./docs/",
       "recurse": true,
-      "verbose": true
+      "verbose": true,
+      "readme": "./README.md"
     }
   }

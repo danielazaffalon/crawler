@@ -9,20 +9,14 @@ import {
 /**
  * Storage service that interacts with Firebase Firestore.
  *
- * @export
  * @class StorageService
- * @typedef {StorageService}
+ * @export 
  */
 export class StorageService {
 
     firebase = null;
     db = null;
 
-    /**
-     * Creates an instance of StorageService and initializes Firebase app and Firestore database.
-     *
-     * @constructor
-     */
     constructor(){
         this.firebase = initializeApp(config.firebaseConfig);
         this.db = getFirestore(this.firebase);

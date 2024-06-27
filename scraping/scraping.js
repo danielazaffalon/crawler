@@ -3,20 +3,16 @@ import { load } from 'cheerio';
 /**
  * Represents a news entry with its number, title, points, and comments.
  *
- * @class Entry
- * @typedef {Entry}
+ * @class
+ * @export
+ * @constructor
+ * @param {number} number
+ * @param {string} title
+ * @param {number} points
+ * @param {number} comments
  */
 export class Entry {
     
-    /**
-     * Creates an instance of Entry.
-     *
-     * @constructor
-     * @param {number} number
-     * @param {string} title
-     * @param {number} points
-     * @param {number} comments
-     */
     constructor(number, title, points, comments) {
         this.number = number;
         this.title = title;
@@ -25,11 +21,11 @@ export class Entry {
     }
 
     /** 
-     * Counts the number of words in a string.
-     * Only considers words separated by spaces and excludes any symbols.
+     * Counts the number of words in a string. Only considers words separated by spaces and excludes any symbols.
      * 
      * @param { string } text - string sentence
      * @returns { number } arrayLenghth - quantity of words in the sentence
+     * @throws {SomeException} Error Counting Words, the field is not a string.
     */
     wordCount(field){
         try{
@@ -47,15 +43,11 @@ export class Entry {
  * 
  * @class Crawler
  * @export
+ * @constructor
+ * @param {string} url
  */
 export class Crawler{
     
-    /**
-     * Creates an instance of Crawler.
-     *
-     * @constructor
-     * @param {string} url
-     */
     constructor(url){
         this.url = url;
     }
@@ -63,6 +55,7 @@ export class Crawler{
     /** 
      * Retrieves the raw HTML text from the specified URL.
      * 
+     * @async
      * @returns { Promise<string> } web raw DOM data string
     */
     async getRawData(){
@@ -81,7 +74,7 @@ export class Crawler{
      * Extracts relevant data from the DOM: number, title, points, and comments.
      * 
      * @param { string } body - raw DOM data string
-     * @returns {{}} Array with relevant DOM data for each entry
+     * @returns {array} Array with relevant DOM data for each entry
      */
     dataScraping(body){
         try{
