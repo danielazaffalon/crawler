@@ -1,7 +1,6 @@
 import readline from 'node:readline/promises'
 import { stdin as input, stdout as output } from 'node:process';
 
-
 /**
  * Prompts the user to select a filter option and returns the corresponding parameters.
  *
