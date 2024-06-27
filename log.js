@@ -25,7 +25,9 @@ export class LogEntry {
     }
     
     /**
-     * Constructs a new LogEntry instance and initializes the start attribute timestamp.
+     * Creates an instance of LogEntry.
+     *
+     * @constructor
      */
     constructor(){
         this.logAttributes.start = Date.now();
