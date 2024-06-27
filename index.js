@@ -1,7 +1,7 @@
-import { Crawler } from './scraping.js';
-import { LogEntry } from './log.js';
-import { getParams } from './readLine.js';
-import { StorageService } from './storageService.js';
+import { Crawler } from './scraping/scraping.js';
+import { LogEntry } from './log/log.js';
+import { getParams } from './readLine/readLine.js';
+import { StorageService } from './storageService/storageService.js';
 
 /**
  * Executes the main crawling and logging process.
