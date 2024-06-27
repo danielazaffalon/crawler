@@ -6,7 +6,7 @@ import { load } from 'cheerio';
  * @class Entry
  * @typedef {Entry}
  */
-class Entry {
+export class Entry {
     
     /**
      * Creates an instance of Entry.
@@ -68,11 +68,12 @@ export class Crawler{
     async getRawData(){
         try{
             const response = await fetch(this.url);
+            if (response.status !== 200) throw new Error(response.statusText);
             const body = await response.text();
             return body;
         }
         catch(e){
-            throw `Error fetching data: ${JSON.stringify(e)}`;
+            throw `Error fetching data: ${e.message}`;
         }
     }
 
@@ -97,7 +98,7 @@ export class Crawler{
             return entries;
         }
         catch(e){
-            throw `Error Scraping data: ${JSON.stringify(e)}`;
+            throw `Error Scraping data: ${e.message}`;
         }
     }
 
@@ -121,7 +122,7 @@ export class Crawler{
             return filteredEntries;
         }
         catch(e){
-            throw `Error Filtering Entries: ${JSON.stringify(e)}`;
+            throw `Error Filtering Entries: ${e.message}`;
         }
     }
 }
