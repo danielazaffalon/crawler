@@ -43,7 +43,15 @@ This project is a web crawler that fetches the first 30 entries from [Hacker New
 
 3. Set up Firebase Firestore:
    - Follow the instructions [here](https://firebase.google.com/docs/firestore/quickstart) to set up a Firestore database.
-   - Update the `firebaseConfig` object in `config.js` with your Firebase configuration.
+   - Create .env file with the following variables from the firebase configuration: 
+    ```
+      API_KEY=
+      AUTH_DOMAIN=
+      PROJECT_ID=
+      STORAGE_BUCKET=
+      MESSAGING_SENDER_ID=
+      APP_ID=
+    ```
 
 ## Usage
 
